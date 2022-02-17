@@ -91,8 +91,7 @@ addButton.addEventListener("click", function(){
     // Recupero il valore all'interno dell'input image
     const userImage = document.getElementById("image").value;
     console.log(userImage);
-
-
+    
     // Oggetto nuovo utente da pushare nell'array di oggetti team
     const objectUser =
         {
@@ -100,26 +99,30 @@ addButton.addEventListener("click", function(){
             role: userRole,
             image: userImage,
         };
-    team.push(objectUser);
-    console.log(team);
 
+    if (isNaN(userName) && isNaN(userRole)){
 
-    // Genero la card contenente il nome, role, image inseriti dall'utente
-    const newCard = 
-    `<div class="team-card">
-        <div class="card-image">
-            <img src="img/${userImage}" alt="${userName}"/>
-        </div>
-        <div class="card-text">
-            <h3>${userName}</h3>
-            <p>${userRole}</p>
-        </div>
-    </div>`;
+        team.push(objectUser);
 
-    console.log(newCard);
+        // Genero la card contenente il nome, role, image inseriti dall'utente
+        const newCard =
+        `<div class="team-card">
+            <div class="card-image">
+                <img src="img/${userImage}" alt="${userName}"/>
+            </div>
+            <div class="card-text">
+                <h3>${userName}</h3>
+                <p>${userRole}</p>
+            </div>
+        </div>`;
+        console.log(newCard);
 
-    // Appendo la newCard al teamContainer
-    teamContainer.innerHTML += newCard;
+        // Appendo la newCard al teamContainer
+        teamContainer.innerHTML += newCard;
+
+    } else {
+        alert("Dati inseriti non validi");
+    }
 
 })
   
