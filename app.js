@@ -70,9 +70,58 @@ for (let i = 0; i < team.length; i++){
     // Appendo a teamContainer la costante card nel dom
     teamContainer.innerHTML += card; 
 }
-  
-  
-  
+
+
+
+// Recupero il pulsante add dal dom
+const addButton = document.querySelector("#addMemberButton");
+console.log(addButton);
+
+// Aggiungo l'evento click al pulsante Add
+addButton.addEventListener("click", function(){
+
+    // Recupero il valore all'interno dell'input name
+    const userName = document.getElementById("name").value;
+    console.log(userName);
+
+    // Recupero il valore all'interno dell'input role
+    const userRole = document.getElementById("role").value;
+    console.log(userRole);
+
+    // Recupero il valore all'interno dell'input image
+    const userImage = document.getElementById("image").value;
+    console.log(userImage);
+
+
+    // Oggetto nuovo utente da pushare nell'array di oggetti team
+    const objectUser =
+        {
+            name: userName,
+            role: userRole,
+            image: userImage,
+        };
+    team.push(objectUser);
+    console.log(team);
+
+
+    // Genero la card contenente il nome, role, image inseriti dall'utente
+    const newCard = 
+    `<div class="team-card">
+        <div class="card-image">
+            <img src="img/${userImage}" alt="${userName}"/>
+        </div>
+        <div class="card-text">
+            <h3>${userName}</h3>
+            <p>${userRole}</p>
+        </div>
+    </div>`;
+
+    console.log(newCard);
+
+    // Appendo la newCard al teamContainer
+    teamContainer.innerHTML += newCard;
+
+})
   
   
   
