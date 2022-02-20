@@ -100,8 +100,10 @@ addButton.addEventListener("click", function(){
             image: userImage,
         };
 
+    // Se l'utente inserisce dei che non sono dei numeri    
     if (isNaN(userName) && isNaN(userRole)){
 
+        // Aggiunto all'array team l'oggetto objectUser
         team.push(objectUser);
 
         // Genero la card contenente il nome, role, image inseriti dall'utente
@@ -120,20 +122,9 @@ addButton.addEventListener("click", function(){
         // Appendo la newCard al teamContainer
         teamContainer.innerHTML += newCard;
 
-    } else {
+    } //Altrimenti i dati inseriti non sono corretti
+      else {
         alert("Dati inseriti non validi");
     }
 
 })
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
